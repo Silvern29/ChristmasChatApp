@@ -2,8 +2,12 @@ package at.redlinghaus.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -16,7 +20,7 @@ public class User {
     private int id;
 
     @Column(name = "user_name")
-    private String username;
+    private String userName;
 
     @Column(name = "email")
     private String email;
@@ -33,6 +37,12 @@ public class User {
     @Column(name = "messages")
     private List<Message> messages;
 
+    @Column(name = "last_login")
+    @UpdateTimestamp
+    private LocalDateTime lastLogin;
 
-
+    @Column(name = "creation")
+    @CreationTimestamp
+    @NotNull
+    private LocalDateTime creation;
 }

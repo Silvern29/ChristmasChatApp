@@ -1,6 +1,8 @@
 package at.redlinghaus.controller;
 
 import at.redlinghaus.dto.ChatMessage;
+import at.redlinghaus.dto.UserDTO;
+import at.redlinghaus.exception.UserExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -23,8 +25,9 @@ public class WebSocketController {
 
     @MessageMapping("/chat.addUser")
     @SendTo("/topic/publicChatRoom")
-    public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+    public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) throws UserExistsException {
         // Add username in web socket session
+        userController.login(chatMessage.getSender());
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         return chatMessage;
     }
