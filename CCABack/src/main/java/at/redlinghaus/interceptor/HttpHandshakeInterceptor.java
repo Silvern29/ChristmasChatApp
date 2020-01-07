@@ -1,4 +1,4 @@
-package at.redlinghaus.websocket.interceptor;
+package at.redlinghaus.interceptor;
 
 import java.util.Map;
 

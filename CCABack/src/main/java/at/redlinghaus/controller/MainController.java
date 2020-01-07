@@ -1,4 +1,4 @@
-package at.redlinghaus.websocket.controller;
+package at.redlinghaus.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,6 +1,6 @@
-package at.redlinghaus.websocket.config;
+package at.redlinghaus.config;
 
-import at.redlinghaus.websocket.interceptor.HttpHandshakeInterceptor;
+import at.redlinghaus.interceptor.HttpHandshakeInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

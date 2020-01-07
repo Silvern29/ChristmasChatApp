@@ -1,6 +1,6 @@
-package at.redlinghaus.websocket.listener;
+package at.redlinghaus.listener;
 
-import at.redlinghaus.websocket.model.ChatMessage;
+import at.redlinghaus.dto.ChatMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class WebSocketEventListener {
             chatMessage.setType(ChatMessage.MessageType.LEAVE);
             chatMessage.setSender(username);
 
-            messagingTemplate.convertAndSend("/topic/publicChatRoom", chatMessage);
+            messagingTemplate.convertAndSend("/secured/chat", chatMessage);
         }
     }
 
