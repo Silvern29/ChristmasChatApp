@@ -11,11 +11,11 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long role_id;
+    private int role_id;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "name")
+    private String name;
 
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
-    private Set<User> users;
+    /*@ManyToMany(targetEntity = User.class, mappedBy = "roles")
+    private Set<User> users;*/
 }

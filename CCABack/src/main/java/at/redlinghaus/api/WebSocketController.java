@@ -1,5 +1,7 @@
-package at.redlinghaus.controller;
+package at.redlinghaus.api;
 
+import at.redlinghaus.controller.MessageController;
+import at.redlinghaus.controller.UserController;
 import at.redlinghaus.dto.ChatMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;

@@ -3,6 +3,7 @@ package at.redlinghaus.entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.Getter;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -25,6 +26,6 @@ public class Message {
     private String msgContent;
 
     @CreationTimestamp
-    @Column(name = "create_time")
+    @Column(name = "create_time", nullable = false, insertable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createTime;
 }
